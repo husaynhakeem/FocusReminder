@@ -9,6 +9,8 @@ import com.firebase.jobdispatcher.Job;
 import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.Trigger;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by husaynhakeem on 6/24/17.
  */
@@ -16,12 +18,10 @@ import com.firebase.jobdispatcher.Trigger;
 public class ReminderUtils {
 
     private static final int REMINDER_INTERVAL_HOURS = 2;
-//    private static final int REMINDER_INTERVAL_SECONDS = (int) TimeUnit.HOURS.toSeconds(REMINDER_INTERVAL_HOURS);
-    private static final int REMINDER_INTERVAL_SECONDS = 60;
+    private static final int REMINDER_INTERVAL_SECONDS = (int) TimeUnit.HOURS.toSeconds(REMINDER_INTERVAL_HOURS);
 
     private static final int REMINDER_FLEXTIME_HOURS = 1;
-//    private static final int REMINDER_FLEXTIME_SECONDS = (int) TimeUnit.HOURS.toSeconds(REMINDER_FLEXTIME_HOURS);
-    private static final int REMINDER_FLEXTIME_SECONDS = 30;
+    private static final int REMINDER_FLEXTIME_SECONDS = (int) TimeUnit.HOURS.toSeconds(REMINDER_FLEXTIME_HOURS);
 
     private static final String FOCUS_REMINDER_JOB_TAG = "focus-reminder-job-tag";
 
@@ -43,6 +43,7 @@ public class ReminderUtils {
                 .setTrigger(Trigger.executionWindow(REMINDER_INTERVAL_SECONDS, REMINDER_INTERVAL_SECONDS + REMINDER_FLEXTIME_SECONDS))
                 .setLifetime(Lifetime.FOREVER)
                 .setReplaceCurrent(true)
+                .setRecurring(true)
                 .build();
 
         jobDispatcher.schedule(job);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="default_messages">
+        <item>Motivational array 1</item>
+        <item>Motivational array 2</item>
+        <item>Motivational array 3</item>
+        <item>Motivational array 4</item>
+        <item>Motivational array 5</item>
+        <item>Motivational array 6</item>
+    </string-array>
+
+    <string-array name="user_focused_messages">
+        <item>Focused array 1</item>
+        <item>Focused array 2</item>
+        <item>Focused array 3</item>
+        <item>Focused array 4</item>
+        <item>Focused array 5</item>
+        <item>Focused array 6</item>
+    </string-array>
+
+    <string-array name="user_not_focused_messages">
+        <item>Not focused array 1</item>
+        <item>Not focused array 2</item>
+        <item>Not focused array 3</item>
+        <item>Not focused array 4</item>
+        <item>Not focused array 5</item>
+        <item>Not focused array 6</item>
+    </string-array>
+
+</resources>

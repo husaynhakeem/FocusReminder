@@ -36,6 +36,12 @@ public class NotificationUtils {
 //        if (!TimeUtils.isWithinReminderTimeInterval())
 //            return;
 
+        dismissAllNotifications(context);
+        displayReminderNotification(context);
+    }
+
+
+    private static void displayReminderNotification(Context context) {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context)
                 .setContentTitle("The world is moving, are you ?")
                 .setContentText("Are you inventing things to do to avoid the important ?")
@@ -64,14 +70,14 @@ public class NotificationUtils {
 
     private static Action userIsFocusedAction(Context context) {
 
-        Intent intent = new Intent(context, FocusReminderIntentService.class);
+        Intent intent = new Intent(context, MainActivity.class);
         intent.setAction(ACTION_USER_IS_FOCUSED);
 
-        PendingIntent pendingIntent = PendingIntent.getService(
+        PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
                 FOCUSED_FOCUS_REMINDER_PENDING_INTENT_ID,
                 intent,
-                PendingIntent.FLAG_CANCEL_CURRENT
+                PendingIntent.FLAG_UPDATE_CURRENT
         );
 
         return new Action(
@@ -84,10 +90,10 @@ public class NotificationUtils {
 
     private static Action userIsNotFocusedAction(Context context) {
 
-        Intent intent = new Intent(context, FocusReminderIntentService.class);
+        Intent intent = new Intent(context, MainActivity.class);
         intent.setAction(ACTION_USER_IS_NOT_FOCUSED);
 
-        PendingIntent pendingIntent = PendingIntent.getService(
+        PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
                 NOT_FOCUSED_FOCUS_REMINDER_PENDING_INTENT_ID,
                 intent,
