@@ -22,7 +22,7 @@
         </activity>
 
         <service
-            android:name=".FocusReminderJobService"
+            android:name=".services.FocusReminderJobService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />

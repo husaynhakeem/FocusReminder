@@ -6,8 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import static husaynhakeem.io.focusreminder.NotificationUtils.ACTION_USER_IS_FOCUSED;
-import static husaynhakeem.io.focusreminder.NotificationUtils.ACTION_USER_IS_NOT_FOCUSED;
+import husaynhakeem.io.focusreminder.utilities.FocusReminderMessageUtils;
+import husaynhakeem.io.focusreminder.utilities.NotificationUtils;
+import husaynhakeem.io.focusreminder.utilities.ReminderUtils;
+
+import static husaynhakeem.io.focusreminder.utilities.NotificationUtils.ACTION_USER_IS_FOCUSED;
+import static husaynhakeem.io.focusreminder.utilities.NotificationUtils.ACTION_USER_IS_NOT_FOCUSED;
 
 public class MainActivity extends AppCompatActivity {
 

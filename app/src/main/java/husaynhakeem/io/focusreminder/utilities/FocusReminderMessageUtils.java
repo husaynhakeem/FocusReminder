@@ -1,13 +1,9 @@
-package husaynhakeem.io.focusreminder;
+package husaynhakeem.io.focusreminder.utilities;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
-import static husaynhakeem.io.focusreminder.NotificationUtils.ACTION_USER_IS_FOCUSED;
-import static husaynhakeem.io.focusreminder.NotificationUtils.ACTION_USER_IS_NOT_FOCUSED;
-import static husaynhakeem.io.focusreminder.SharedPreferencesUtils.MOST_RECENT_DEFAULT_MESSAGE_INDEX_KEY;
-import static husaynhakeem.io.focusreminder.SharedPreferencesUtils.MOST_RECENT_USER_FOCUSED_MESSAGE_INDEX_KEY;
-import static husaynhakeem.io.focusreminder.SharedPreferencesUtils.MOST_RECENT_USER_NOT_FOCUSED_MESSAGE_INDEX_KEY;
+import husaynhakeem.io.focusreminder.R;
 
 /**
  * Created by husaynhakeem on 6/24/17.
@@ -17,17 +13,17 @@ public class FocusReminderMessageUtils {
 
 
     public static String getRandomDefaultMessage(Context context) {
-        return getMessageToDisplay(context, R.array.default_messages, MOST_RECENT_DEFAULT_MESSAGE_INDEX_KEY);
+        return getMessageToDisplay(context, R.array.default_messages, SharedPreferencesUtils.MOST_RECENT_DEFAULT_MESSAGE_INDEX_KEY);
     }
 
 
     public static String getRandomUserFocusedMessage(Context context) {
-        return getMessageToDisplay(context, R.array.user_focused_messages, MOST_RECENT_USER_FOCUSED_MESSAGE_INDEX_KEY);
+        return getMessageToDisplay(context, R.array.user_focused_messages, SharedPreferencesUtils.MOST_RECENT_USER_FOCUSED_MESSAGE_INDEX_KEY);
     }
 
 
     public static String getRandomUserNotFocusedMessage(Context context) {
-        return getMessageToDisplay(context, R.array.user_not_focused_messages, MOST_RECENT_USER_NOT_FOCUSED_MESSAGE_INDEX_KEY);
+        return getMessageToDisplay(context, R.array.user_not_focused_messages, SharedPreferencesUtils.MOST_RECENT_USER_NOT_FOCUSED_MESSAGE_INDEX_KEY);
     }
 
 
@@ -49,10 +45,10 @@ public class FocusReminderMessageUtils {
     public static int getBackgroundColorForFocusMessage(Context context, String action) {
         switch (action) {
 
-            case ACTION_USER_IS_FOCUSED:
+            case NotificationUtils.ACTION_USER_IS_FOCUSED:
                 return ContextCompat.getColor(context, R.color.colorPrimaryUserFocused);
 
-            case ACTION_USER_IS_NOT_FOCUSED:
+            case NotificationUtils.ACTION_USER_IS_NOT_FOCUSED:
                 return ContextCompat.getColor(context, R.color.colorPrimaryUserNotFocused);
 
             default:

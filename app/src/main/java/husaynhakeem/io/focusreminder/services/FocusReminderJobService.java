@@ -1,9 +1,11 @@
-package husaynhakeem.io.focusreminder;
+package husaynhakeem.io.focusreminder.services;
 
 import android.os.AsyncTask;
 
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
+
+import husaynhakeem.io.focusreminder.utilities.NotificationUtils;
 
 /**
  * Created by husaynhakeem on 6/24/17.

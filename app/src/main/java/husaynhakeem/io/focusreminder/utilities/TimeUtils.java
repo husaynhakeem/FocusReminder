@@ -1,4 +1,4 @@
-package husaynhakeem.io.focusreminder;
+package husaynhakeem.io.focusreminder.utilities;
 
 import java.util.Calendar;
 

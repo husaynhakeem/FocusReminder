@@ -1,4 +1,4 @@
-package husaynhakeem.io.focusreminder;
+package husaynhakeem.io.focusreminder.utilities;
 
 import android.content.Context;
 
@@ -10,6 +10,8 @@ import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.Trigger;
 
 import java.util.concurrent.TimeUnit;
+
+import husaynhakeem.io.focusreminder.services.FocusReminderJobService;
 
 /**
  * Created by husaynhakeem on 6/24/17.

@@ -1,4 +1,4 @@
-package husaynhakeem.io.focusreminder;
+package husaynhakeem.io.focusreminder.utilities;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Action;
+
+import husaynhakeem.io.focusreminder.MainActivity;
+import husaynhakeem.io.focusreminder.R;
 
 import static android.app.PendingIntent.getActivity;
 
