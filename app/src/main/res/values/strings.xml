@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Focus</string>
+    <string name="notification_title">Your friendly focus reminder !</string>
+    <string name="notification_body">Are you inventing things to do in order to avoid the important ?</string>
+    <string name="notification_action_focused">No, I am focused !</string>
+    <string name="notification_action_not_focused">Yes, I guess I am.</string>
 </resources>

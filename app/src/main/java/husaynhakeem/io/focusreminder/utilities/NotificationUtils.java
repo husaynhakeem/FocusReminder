@@ -36,8 +36,8 @@ public class NotificationUtils {
 
     public static void remindUserToFocus(Context context) {
 
-//        if (!TimeUtils.isWithinReminderTimeInterval())
-//            return;
+        if (!TimeUtils.isWithinReminderTimeInterval())
+            return;
 
         dismissAllNotifications(context);
         displayReminderNotification(context);
@@ -46,15 +46,15 @@ public class NotificationUtils {
 
     private static void displayReminderNotification(Context context) {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context)
-                .setContentTitle("The world is moving, are you ?")
-                .setContentText("Are you inventing things to do to avoid the important ?")
-                .setStyle(new NotificationCompat.BigTextStyle().bigText("Are you inventing things to do to avoid the important ?"))
+                .setContentTitle(context.getString(R.string.notification_title))
+                .setContentText(context.getString(R.string.notification_body))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.notification_body)))
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentIntent(contentIntent(context))
                 .setDefaults(NotificationCompat.DEFAULT_VIBRATE)
                 .setAutoCancel(true)
-                .addAction(userIsFocusedAction(context))
-                .addAction(userIsNotFocusedAction(context));
+                .addAction(userIsNotFocusedAction(context))
+                .addAction(userIsFocusedAction(context));
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(FOCUS_REMINDER_NOTIFICATION_ID, notification.build());
@@ -85,7 +85,7 @@ public class NotificationUtils {
 
         return new Action(
                 R.drawable.ic_focused,
-                "No, I am focused!",
+                context.getString(R.string.notification_action_focused),
                 pendingIntent
         );
     }
@@ -105,7 +105,7 @@ public class NotificationUtils {
 
         return new Action(
                 R.drawable.ic_not_focused,
-                "Yes, I am.",
+                context.getString(R.string.notification_action_not_focused),
                 pendingIntent
         );
     }
