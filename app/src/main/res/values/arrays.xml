@@ -4,7 +4,7 @@
     <string-array name="default_messages">
         <item>Most people get ahead during the time that others waste.</item>
         <item>Do one thing every day that scares you.</item>
-        <item>Don’t regret the past, just learn from it.</item>
+        <item>Don\’t regret the past, just learn from it.</item>
         <item>It is the working man who is the happy man. It is the idle man who is the miserable man.</item>
         <item>To be the best, you must be able to handle the worst.</item>
         <item>The best revenge is massive success.</item>
@@ -20,7 +20,7 @@
         <item>There are no shortcuts to any place worth going.</item>
         <item>The greatest pleasure in life is doing what people say you cannot do.</item>
         <item>Nobody cares if you can\'t dance well. Just get up and dance.</item>
-        <item>Even if you are on the right track, you’ll get run over if you just sit there.</item>
+        <item>Even if you are on the right track, you\’ll get run over if you just sit there.</item>
         <item>Men are born to succeed, not fail.</item>
         <item>What you do today can improve all your tomorrows.</item>
         <item>Live as if you were to die tomorrow. Learn as if you were to live forever.</item>
@@ -75,16 +75,16 @@
         <item>If all you can do is crawl, start crawling.</item>
         <item>Opportunity does not knock, it presents itself when you beat down the door.</item>
         <item>If we did the things we are capable of, we would astound ourselves.</item>
-        <item>If you’re going through hell, keep going.</item>
+        <item>If you\’re going through hell, keep going.</item>
         <item>You\'re going to die.</item>
         <item>Change your thoughts and you change your world.</item>
         <item>Your time is limited, so don\’t waste it living someone else\’s life.</item>
         <item>Some people dream of success… while others wake up and work hard at it.</item>
         <item>We all have bad days, but one thing is true; no cloud is so dark that the sun can\’t shine through.</item>
         <item>The secret to getting ahead is getting started.</item>
-        <item>If you don’t run your own life, somebody else will.</item>
+        <item>If you don\’t run your own life, somebody else will.</item>
         <item>Nobody cares if you can\'t dance well. Just get up and dance.</item>
-        <item>Even if you are on the right track, you’ll get run over if you just sit there.</item>
+        <item>Even if you are on the right track, you\’ll get run over if you just sit there.</item>
     </string-array>
 
 </resources>

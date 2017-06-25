@@ -17,12 +17,27 @@ public class SharedPreferencesUtils {
     private static final int MESSAGE_INDEX_DEFAULT_VALUE = 0;
 
 
-    synchronized public static void saveSharedPreference(final Context context, final String key, final int valueToSave) {
+    private static SharedPreferencesUtils instance;
+    private static SharedPreferences preferences;
+
+
+    private SharedPreferencesUtils(Context context) {
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
+
+    public static SharedPreferencesUtils with(Context context) {
+        if (instance == null)
+            instance = new SharedPreferencesUtils(context);
+        return instance;
+    }
+
+
+    synchronized public void saveSharedPreference(final Context context, final String key, final int valueToSave) {
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putInt(key, valueToSave);
                 editor.apply();
@@ -31,8 +46,7 @@ public class SharedPreferencesUtils {
     }
 
 
-    public static int getSharedPreference(Context context, String key) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    public int getSharedPreference(Context context, String key) {
         return preferences.getInt(key, MESSAGE_INDEX_DEFAULT_VALUE);
     }
 }

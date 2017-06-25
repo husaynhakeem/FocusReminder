@@ -3,17 +3,25 @@ package husaynhakeem.io.focusreminder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+
+import static husaynhakeem.io.focusreminder.NotificationUtils.ACTION_USER_IS_FOCUSED;
+import static husaynhakeem.io.focusreminder.NotificationUtils.ACTION_USER_IS_NOT_FOCUSED;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView reminderMessageTextView;
+    private String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        action = getIntent().getAction();
+        if (action != null)
+            setCorrectTheme();
+
         setContentView(R.layout.activity_main);
 
         reminderMessageTextView = (TextView) findViewById(R.id.tv_reminder_message);
@@ -24,65 +32,67 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        handleIncomingFromNotification();
         ReminderUtils.scheduleFocusReminder(this);
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        handleIncomingFromNotification();
+    private void setCorrectTheme() {
+
+        switch (action) {
+            case ACTION_USER_IS_FOCUSED:
+                getTheme().applyStyle(R.style.AppThemeUserFocused, true);
+                break;
+
+            case ACTION_USER_IS_NOT_FOCUSED:
+                getTheme().applyStyle(R.style.AppThemeUserNotFocused, true);
+                break;
+
+            default:
+                getTheme().applyStyle(R.style.AppTheme, true);
+                break;
+        }
     }
 
-    private void handleIncomingFromNotification() {
-        String action = getIntent().getAction();
 
-        if (isIncomingFromNotification(action)) {
-            customFocusMessage(action);
+    private void handleIncomingFromNotification() {
+
+        if (action == null) {
+            setFocusMessage(FocusReminderMessageUtils.getRandomDefaultMessage(this), "");
             return;
         }
 
-        defaultFocusMessage();
-    }
-
-
-    private boolean isIncomingFromNotification(String action) {
-        return !TextUtils.isEmpty(action) &&
-                (NotificationUtils.ACTION_USER_IS_FOCUSED.equals(action) ||
-                        NotificationUtils.ACTION_USER_IS_NOT_FOCUSED.equals(action));
-    }
-
-
-    private void defaultFocusMessage() {
-        setFocusMessage(getString(R.string.default_message));
-    }
-
-
-    private void customFocusMessage(String action) {
         switch (action) {
-
-            case NotificationUtils.ACTION_USER_IS_FOCUSED:
+            case ACTION_USER_IS_FOCUSED:
                 NotificationUtils.dismissAllNotifications(this);
-                setFocusMessage(getString(R.string.user_focused_message));
+                setFocusMessage(FocusReminderMessageUtils.getRandomUserFocusedMessage(this),
+                        ACTION_USER_IS_FOCUSED);
                 break;
 
-            case NotificationUtils.ACTION_USER_IS_NOT_FOCUSED:
+            case ACTION_USER_IS_NOT_FOCUSED:
                 NotificationUtils.dismissAllNotifications(this);
-                setFocusMessage(getString(R.string.user_not_focused_message));
+                setFocusMessage(FocusReminderMessageUtils.getRandomUserNotFocusedMessage(this),
+                        ACTION_USER_IS_NOT_FOCUSED);
+                break;
+
+            default:
+                setFocusMessage(FocusReminderMessageUtils.getRandomDefaultMessage(this), "");
                 break;
         }
     }
 
 
-    public void setFocusMessage(String message) {
-        if (reminderMessageTextView != null)
+    public void setFocusMessage(String message, String action) {
+        if (reminderMessageTextView != null) {
             reminderMessageTextView.setText(message);
+            reminderMessageTextView.setBackgroundColor(FocusReminderMessageUtils.getBackgroundColorForFocusMessage(this, action));
+        }
     }
+
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        reminderMessageTextView.setText(null);
         finish();
         overridePendingTransition(0, 0);
         startActivity(intent);

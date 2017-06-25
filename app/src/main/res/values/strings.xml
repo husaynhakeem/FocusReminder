@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">FocusReminder</string>
-
-    <string name="default_message">Come on! Let\'s focus</string>
-    <string name="user_focused_message">Great! Go on!</string>
-    <string name="user_not_focused_message">FOCUS !</string>
 </resources>

@@ -1,11 +1,19 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeUserFocused" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryUserFocused</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkUserFocused</item>
+    </style>
+
+    <style name="AppThemeUserNotFocused" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryUserNotFocused</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkUserNotFocused</item>
     </style>
 
 </resources>
