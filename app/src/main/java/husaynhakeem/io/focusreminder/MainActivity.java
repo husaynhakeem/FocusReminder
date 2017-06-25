@@ -3,7 +3,6 @@ package husaynhakeem.io.focusreminder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import husaynhakeem.io.focusreminder.utilities.FocusReminderMessageUtils;
@@ -29,12 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         reminderMessageTextView = (TextView) findViewById(R.id.tv_reminder_message);
-        reminderMessageTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NotificationUtils.remindUserToFocus(MainActivity.this);
-            }
-        });
 
         handleIncomingFromNotification();
         ReminderUtils.scheduleFocusReminder(this);
