@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        reminderMessageTextView.setText(null);
         finish();
         overridePendingTransition(0, 0);
         startActivity(intent);
